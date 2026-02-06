@@ -1,14 +1,15 @@
 package com.learning.springBoot.Hospital_Management_System;
 
 import com.learning.springBoot.Hospital_Management_System.entity.Patient;
-import com.learning.springBoot.Hospital_Management_System.entity.type.BloodGroup;
 import com.learning.springBoot.Hospital_Management_System.repository.PatientRepository;
 import com.learning.springBoot.Hospital_Management_System.service.PatientService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 
-import java.time.LocalDate;
 import java.util.List;
 
 @SpringBootTest
@@ -58,12 +59,21 @@ public class PatientsTest {
 //            System.out.println("["+objects[0]+","+objects[1]+"]");
 //        }
 
-        List<Patient> patientList1 = patientRepository.findAllPatient();
+        Page<Patient> patientList1 = patientRepository.findAllPatient
+                (PageRequest.of(0, 3, Sort.by("name")));
 
         for(Patient patient:patientList1){
             System.out.println(patient);
         }
 
+//        int rowUpdated = patientRepository.updateNameWithId("Arav Sharma", 1L);
+//        System.out.println(rowUpdated);
+
+//        List<BloodGroupCountResponseEntity> bloodGroupList = patientRepository.countEachBloodGroup();
+//
+//        for(BloodGroupCountResponseEntity bloodGroupCountResponseEntity: bloodGroupList){
+//            System.out.println(bloodGroupCountResponseEntity);
+//        }
 //        System.out.println(patientList);
     }
 }
