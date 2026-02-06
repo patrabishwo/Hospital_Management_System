@@ -1,6 +1,7 @@
 package com.learning.springBoot.Hospital_Management_System;
 
 import com.learning.springBoot.Hospital_Management_System.entity.Patient;
+import com.learning.springBoot.Hospital_Management_System.entity.type.BloodGroup;
 import com.learning.springBoot.Hospital_Management_System.repository.PatientRepository;
 import com.learning.springBoot.Hospital_Management_System.service.PatientService;
 import org.junit.jupiter.api.Test;
@@ -41,9 +42,25 @@ public class PatientsTest {
 //                LocalDate.of(1995,8,20)
 //        );
 
-        List<Patient> patientList = patientRepository.findByNameContaining("Di");
+//        List<Patient> patientList = patientRepository.findByNameContaining("Di");
 
-        for(Patient patient: patientList){
+//        List<Patient> patientList = patientRepository.findByBloodGroup(BloodGroup.A_NEGATIVE);
+
+//        List<Patient> patientList = patientRepository.findByBornAfterDate(LocalDate.of(1992,12,1));
+//
+//        for(Patient patient: patientList){
+//            System.out.println(patient);
+//        }
+//
+//        List<Object[]> bloodGroupList = patientRepository.countEachBloodGroup();
+//
+//        for(Object[] objects: bloodGroupList){
+//            System.out.println("["+objects[0]+","+objects[1]+"]");
+//        }
+
+        List<Patient> patientList1 = patientRepository.findAllPatient();
+
+        for(Patient patient:patientList1){
             System.out.println(patient);
         }
 
